@@ -3,15 +3,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://obninskstation.ru"),
-  title: "obninskstation — сообщество в Обнинске",
+  title: "Станция Обнинск",
   description:
     "Проект-сообщество в Обнинске: афиша мероприятий, календарь событий, запись и билеты. Скоро открытие.",
   openGraph: {
-    title: "obninskstation — сообщество в Обнинске",
+    title: "Станция Обнинск",
     description:
       "Афиша мероприятий, календарь событий, запись и билеты. Скоро открытие.",
     url: "https://obninskstation.ru",
-    siteName: "obninskstation",
+    siteName: "Станция Обнинск",
     locale: "ru_RU",
     type: "website",
   },
