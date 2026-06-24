@@ -1,0 +1,17 @@
+{
+  "header": "# Changelog\n\nВсе значимые изменения проекта документируются в этом файле.\nФормат основан на [Conventional Commits](https://www.conventionalcommits.org/).\n",
+  "types": [
+    { "type": "feat", "section": "✨ Features" },
+    { "type": "fix", "section": "🐛 Bug Fixes" },
+    { "type": "perf", "section": "⚡ Performance" },
+    { "type": "refactor", "section": "♻️ Refactoring" },
+    { "type": "docs", "section": "📝 Documentation", "hidden": true },
+    { "type": "style", "hidden": true },
+    { "type": "test", "hidden": true },
+    { "type": "build", "hidden": true },
+    { "type": "ci", "hidden": true },
+    { "type": "chore", "hidden": true }
+  ],
+  "commitAll": false,
+  "tagPrefix": "v"
+}

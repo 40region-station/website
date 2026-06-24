@@ -1,0 +1,37 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js / build output
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# env / secrets
+.env
+.env.local
+.env*.local
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# os / editor
+.DS_Store
+*.pem
+
+# test artifacts
+/coverage
+/playwright-report
+/test-results
+
+# claude context — версионируем (переопределяем глобальный ~/.gitignore_global)
+!CLAUDE.md
+!.claude/
+# но личные локальные разрешения держим вне репозитория
+.claude/settings.local.json
