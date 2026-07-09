@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.3](https://github.com/obninskstation/website/compare/v0.1.2...v0.1.3) (2026-07-09)
+
+
+### ✨ Features
+
+* **fest:** serve landing on amo.obninskstation.ru subdomain ([d7a2e9b](https://github.com/obninskstation/website/commit/d7a2e9b838b8e83702b8a51e8bc90f4ab9df74c4))
+
 ## [0.1.2](https://github.com/obninskstation/website/compare/v0.1.1...v0.1.2) (2026-07-08)
 
 
