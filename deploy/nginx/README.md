@@ -7,7 +7,7 @@
 
 | Файл | На сервере | Назначение |
 |------|-----------|------------|
-| `obninskstation.ru.conf` | `/etc/nginx/sites-available/obninskstation.ru` | Основной сайт (заглушка «soon») + 301-редирект `/fest` → поддомен |
+| `obninskstation.ru.conf` | `/etc/nginx/sites-available/obninskstation.ru` | Основной сайт: главная `/` → 302 на поддомен (пока сайт-заглушка), `/fest` → 301 на поддомен |
 | `amo.obninskstation.ru.conf` | `/etc/nginx/sites-available/amo.obninskstation.ru` | Лендинг фестиваля АМО на поддомене (общий docroot, `/` → `/fest/index.html`) |
 
 ## Что тут ручное, а что от certbot
@@ -15,7 +15,8 @@
 - **Ручные (смысловые) части:**
   - в `amo.*` — блок с `root /var/www/obninskstation.ru/html` и
     `location = / { try_files /fest/index.html =404; }` (общий docroot с основным сайтом);
-  - в `obninskstation.ru.conf` — `location = /fest` / `= /fest/` → 301 на поддомен.
+  - в `obninskstation.ru.conf` — `location = /` → 302 на поддомен (временный, пока
+    основной сайт — заглушка) и `location = /fest` / `= /fest/` → 301 на поддомен.
 - **Строки `# managed by Certbot`** (443-блоки, пути к сертификатам, HTTP→HTTPS
   редиректы) добавляет и обслуживает `certbot --nginx` автоматически. Руками их не
   трогаем — при необходимости перевыпускаем сертификат.
