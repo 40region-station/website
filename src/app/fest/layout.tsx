@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Unbounded } from "next/font/google";
+import { Inter } from "next/font/google";
 
 /**
- * Дисплейный шрифт лендинга.
- * ВРЕМЕННО: Unbounded (Google, кириллица) — близкий по духу плейсхолдер.
- * TODO: заменить на оригинальный шрифт макета — положить файлы в
- * `public/fest/fonts/`, объявить @font-face и выставить `--font-display`.
+ * Дисплейный шрифт лендинга — Inter Semi Bold (600).
+ * В макете весь текст набран Inter Semi Bold с трекингом −0.03em; кегли и
+ * line-height проставлены поэлементно на странице (заголовки — 0.98, текст — 1.1).
  */
-const display = Unbounded({
+const display = Inter({
   subsets: ["cyrillic", "latin"],
-  weight: ["600", "700", "800"],
+  weight: ["600"],
   variable: "--font-display",
   display: "swap",
 });
