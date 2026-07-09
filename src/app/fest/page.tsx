@@ -1,6 +1,7 @@
 import { fest } from "@/content/fest";
 import { preventOrphans } from "@/lib/typography";
 import { TicketButton } from "@/components/fest/TicketButton";
+import { FestJsonLd } from "@/components/fest/FestJsonLd";
 
 /** Фирменная «точка» над заголовком секции. 6px на мобилке, 20px на десктопе. */
 function Dot({ className }: { className?: string }) {
@@ -15,6 +16,8 @@ function Dot({ className }: { className?: string }) {
 export default function FestPage() {
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#100030] text-[#F7FAFF] tracking-[-0.03em]">
+      {/* Schema.org MusicEvent (JSON-LD) — карточка события в поисковой выдаче. */}
+      <FestJsonLd />
       {/*
         Верх страницы. На мобилке визуально переворачиваем порядок
         (flex-col-reverse): сначала логотип «АМО», под ним — кнопка билетов, как
@@ -49,10 +52,14 @@ export default function FestPage() {
             (тёмный фон + рамка + леттеринг) — единый svg, тянется на всю ширину. */}
         <section className="w-full min-w-0">
           <h1>
+            {/* Текстовый заголовок для поисковиков и скринридеров. Визуально
+                скрыт (sr-only) — на экране его роль играет лого-картинка ниже,
+                поэтому у неё alt="" (декоративная, текст не дублируем). */}
+            <span className="sr-only">{fest.seo.h1}</span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/fest/amo.svg"
-              alt="АМО"
+              alt=""
               className="block w-full"
               width={1200}
               height={675}
