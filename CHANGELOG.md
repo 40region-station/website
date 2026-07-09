@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.4](https://github.com/obninskstation/website/compare/v0.1.3...v0.1.4) (2026-07-09)
+
+
+### ✨ Features
+
+* **fest:** обновить лендинг под новую версию макета ([f2513df](https://github.com/obninskstation/website/commit/f2513df124021e583b4ffeae169e302a1e926a93))
+
 ## [0.1.3](https://github.com/obninskstation/website/compare/v0.1.2...v0.1.3) (2026-07-09)
 
 
