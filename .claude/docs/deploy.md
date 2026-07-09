@@ -53,3 +53,65 @@ A-записи `@` и `www` → 138.16.184.155, nameservers `ns1/ns2.reg.ru`.
 npm run build
 rsync -avz --delete out/ obninskstation:/var/www/obninskstation.ru/html/
 ```
+
+## Поддомен `amo.obninskstation.ru` (лендинг фестиваля АМО)
+
+Лендинг фестиваля живёт на отдельном поддомене, но **отдаётся из той же сборки** —
+никаких изменений в CI/деплое не нужно. Сборка кладёт лендинг в `out/fest/`, а nginx
+поддомена отдаёт его в своём корне. URL на поддомене чистый: `https://amo.obninskstation.ru/`.
+
+### 1. DNS (reg.ru) — делает владелец домена
+
+A-запись `amo.obninskstation.ru` → `138.16.184.155` (тот же IP). Проверять резолв **с сервера**:
+`ssh obninskstation 'dig +short amo.obninskstation.ru'` (локальная сеть перехватывает DNS).
+
+### 2. nginx: server-блок поддомена
+
+`/etc/nginx/sites-available/amo.obninskstation.ru` (симлинк в `sites-enabled`), общий docroot
+с основным сайтом:
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name amo.obninskstation.ru;
+
+    # Тот же корень, что и у основного сайта — ассеты (/_next, /fest/og.png) общие.
+    root /var/www/obninskstation.ru/html;
+    index index.html;
+
+    # Корень поддомена отдаёт лендинг фестиваля (сборка лежит в /fest/).
+    location = / {
+        try_files /fest/index.html =404;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+```bash
+ln -s /etc/nginx/sites-available/amo.obninskstation.ru /etc/nginx/sites-enabled/
+nginx -t && systemctl reload nginx
+```
+
+### 3. TLS (после того как DNS резолвится)
+
+```bash
+certbot --nginx -d amo.obninskstation.ru        # добавит 443-блок + HTTP→HTTPS 301
+```
+
+### 4. Убрать `/fest` с основного домена
+
+В server-блок `obninskstation.ru` (443) добавить редирект страницы на поддомен:
+
+```nginx
+location = /fest  { return 301 https://amo.obninskstation.ru/; }
+location = /fest/ { return 301 https://amo.obninskstation.ru/; }
+```
+
+`nginx -t && systemctl reload nginx`. (Ассеты `/fest/*` на apex остаются доступны — они
+безвредны и используются поддоменом через общий корень.)
+
+> ⚠️ certbot/needrestart могут рвать SSH-сессию — тяжёлые шаги через `nohup … &` + опрос лога.

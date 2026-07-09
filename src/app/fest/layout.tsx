@@ -15,14 +15,21 @@ const display = Unbounded({
 });
 
 export const metadata: Metadata = {
+  // Лендинг живёт на отдельном поддомене amo.obninskstation.ru (nginx отдаёт
+  // /fest/index.html в корне поддомена). metadataBase переопределяет корневой,
+  // чтобы относительные OG-URL резолвились на поддомен, а не на apex.
+  metadataBase: new URL("https://amo.obninskstation.ru"),
   title: "АМО — фестиваль в Обнинске · 1 августа",
   description:
     "AM-0 — фестиваль любви к городу, людям и культуре в Обнинске. Лайвы и dj-сеты 20+ музыкантов, лекции, воркшопы, кинопоказ. 1 августа, дворик ДК ФЭИ. Билеты онлайн.",
+  alternates: {
+    canonical: "https://amo.obninskstation.ru",
+  },
   openGraph: {
     title: "АМО — фестиваль в Обнинске · 1 августа",
     description:
       "Фестиваль любви к городу, людям и культуре. Лайвы и dj-сеты 20+ музыкантов, лекции, воркшопы, кинопоказ. 1 августа, дворик ДК ФЭИ.",
-    url: "https://obninskstation.ru/fest",
+    url: "https://amo.obninskstation.ru",
     siteName: "Станция Обнинск",
     locale: "ru_RU",
     type: "website",
