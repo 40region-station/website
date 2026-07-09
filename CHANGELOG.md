@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.7](https://github.com/obninskstation/website/compare/v0.1.6...v0.1.7) (2026-07-09)
+
+
+### ✨ Features
+
+* **nginx:** редирект главной obninskstation.ru → лендинг фестиваля ([3118f03](https://github.com/obninskstation/website/commit/3118f03dea7a37e76d2efc54b66e1fd5871a662a))
+
 ## [0.1.6](https://github.com/obninskstation/website/compare/v0.1.5...v0.1.6) (2026-07-09)
 
 
