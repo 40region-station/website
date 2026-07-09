@@ -96,7 +96,7 @@ export const fest = {
     /** Абсолютный URL обложки (og). */
     imageUrl: "https://amo.obninskstation.ru/fest/og.png",
     /** Цена билета в рублях. null — пока не выводим price в offers. */
-    ticketPrice: null as string | null,
+    ticketPrice: "1700" as string | null,
     priceCurrency: "RUB",
     /** Скрытый текстовый заголовок страницы (h1) — картинка-лого его дублирует. */
     h1: "AM-0 (АМО) — фестиваль любви к городу, людям и культуре · Обнинск · 1 августа",
