@@ -3,6 +3,15 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.5](https://github.com/obninskstation/website/compare/v0.1.4...v0.1.5) (2026-07-09)
+
+
+### ✨ Features
+
+* **seo:** разметка события и техбаза для поиска ([ab43070](https://github.com/obninskstation/website/commit/ab430700449bce52f51cd8dcc1926aa237c52ec4))
+* **seo:** цена билета 1700 ₽ в разметку события ([30422d9](https://github.com/obninskstation/website/commit/30422d94e6417f928d0cf10b225101699b1ce752))
+* **seo:** читаемые имена артистов в разметке события ([e160a42](https://github.com/obninskstation/website/commit/e160a42cb03e3f155c74d6325cf00cb0aec48a3a))
+
 ## [0.1.4](https://github.com/obninskstation/website/compare/v0.1.3...v0.1.4) (2026-07-09)
 
 
