@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.6](https://github.com/obninskstation/website/compare/v0.1.5...v0.1.6) (2026-07-09)
+
+
+### ✨ Features
+
+* **analytics:** подключить Яндекс.Метрику (id 110514769) ([29e80e2](https://github.com/obninskstation/website/commit/29e80e28fb282a5a8edee327e804a94a92903c59))
+
 ## [0.1.5](https://github.com/obninskstation/website/compare/v0.1.4...v0.1.5) (2026-07-09)
 
 
