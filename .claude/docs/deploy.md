@@ -60,6 +60,9 @@ rsync -avz --delete out/ obninskstation:/var/www/obninskstation.ru/html/
 никаких изменений в CI/деплое не нужно. Сборка кладёт лендинг в `out/fest/`, а nginx
 поддомена отдаёт его в своём корне. URL на поддомене чистый: `https://amo.obninskstation.ru/`.
 
+> Боевые nginx-конфиги версионированы в репо: [`deploy/nginx/`](../../deploy/nginx/)
+> (снимок `/etc/nginx/sites-available/*` с сервера + README по применению и синхронизации).
+
 ### 1. DNS (reg.ru) — делает владелец домена
 
 A-запись `amo.obninskstation.ru` → `138.16.184.155` (тот же IP). Проверять резолв **с сервера**:
