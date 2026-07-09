@@ -62,7 +62,8 @@ export function FestJsonLd() {
       name: s.organizerName,
       url: s.organizerUrl,
     },
-    performer: fest.lineup.acts.map((name) => ({
+    // Читаемые имена (без «пляшущего» регистра макета) — их индексируют поисковики.
+    performer: s.performers.map((name) => ({
       "@type": "MusicGroup",
       name,
     })),
