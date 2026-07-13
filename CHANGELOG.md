@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.8](https://github.com/obninskstation/website/compare/v0.1.7...v0.1.8) (2026-07-13)
+
+
+### ✨ Features
+
+* **fest:** предзагрузка попап-формы Nethouse для мгновенного открытия ([3260fd2](https://github.com/obninskstation/website/commit/3260fd25c25d8014b00295f4943493cd70b79422))
+
 ## [0.1.7](https://github.com/obninskstation/website/compare/v0.1.6...v0.1.7) (2026-07-09)
 
 
