@@ -34,15 +34,36 @@ function loadNethouse(): Promise<void> {
 }
 
 /**
+ * Прогревает попап-форму заранее, чтобы клик открывал её мгновенно.
+ *
+ * Nethouse умеет предзагружать форму сам: по `DOMContentLoaded` его скрипт
+ * сканирует триггеры с атрибутом `data-preloaded-form`, строит `<iframe>` формы
+ * и паркует его за экраном; по клику форма просто «выезжает» (unpark). Но мы
+ * подключаем скрипт в `useEffect` — уже ПОСЛЕ реального `DOMContentLoaded`, —
+ * поэтому их сканер не вызывается. Функции `CalloutForm`/`showEventsNhForm` в
+ * скрипте объявлены top-level `const` и в `window` не попадают, дёрнуть их
+ * вручную нельзя. Единственная зацепка — их слушатель `DOMContentLoaded`:
+ * ре-диспатчим это событие один раз после загрузки скрипта, и сканер отрабатывает
+ * штатно (уже с проставленным `data-preloaded-form` на кнопках).
+ */
+let preloadDispatched = false;
+function preloadForms(): void {
+  if (preloadDispatched) return;
+  preloadDispatched = true;
+  document.dispatchEvent(new Event("DOMContentLoaded"));
+}
+
+/**
  * Кнопка покупки билета. Открывает встроенную попап-форму Nethouse.
  *
  * Тонкость: в popup-form.js функция объявлена как top-level `const
  * showEventsNhForm`, поэтому она НЕ попадает в `window.*`, а резолвится только
  * из inline-обработчика (именно так, как в инструкции Nethouse). Поэтому мы
  * программно проставляем настоящий атрибут `onclick`. Скрипт прогреваем при
- * монтировании, чтобы к клику функция уже существовала. Если функции ещё нет
- * (или JS отключён) — inline-обработчик ничего не перехватывает и срабатывает
- * обычный переход по `href` на форму Nethouse (фолбэк).
+ * монтировании, а саму форму — предзагружаем (см. `preloadForms`), чтобы к клику
+ * iframe уже был построен и открытие было мгновенным. Если функции ещё нет (или
+ * JS отключён) — inline-обработчик ничего не перехватывает и срабатывает обычный
+ * переход по `href` на форму Nethouse (фолбэк).
  */
 export function TicketButton({
   className,
@@ -54,11 +75,18 @@ export function TicketButton({
   const ref = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    loadNethouse().catch(() => {});
-    ref.current?.setAttribute(
-      "onclick",
-      `if(typeof showEventsNhForm==='function'){showEventsNhForm('${fest.ticketPopupUrl}');return false;}`,
-    );
+    const el = ref.current;
+    if (el) {
+      el.setAttribute(
+        "onclick",
+        `if(typeof showEventsNhForm==='function'){showEventsNhForm('${fest.ticketPopupUrl}');return false;}`,
+      );
+      // Помечаем кнопку для штатного предзагрузчика Nethouse (см. preloadForms).
+      el.setAttribute("data-preloaded-form", "");
+    }
+    // После загрузки скрипта — один раз прогреваем форму, чтобы клик открывал её
+    // мгновенно (обе кнопки шарят один кэшированный промис и один инстанс формы).
+    loadNethouse().then(preloadForms).catch(() => {});
   }, []);
 
   return (
