@@ -73,6 +73,20 @@ export default function FestLayout({
       className={display.variable}
       style={{ fontFamily: "var(--font-display)" }}
     >
+      <link rel='preconnect' href='https://events.nethouse.ru' />
+      <link rel='dns-prefetch' href='https://events.nethouse.ru' />
+      {/*
+        Даём попап-форме Nethouse приоритет над счётчиками (Метрика грузит свой
+        tag.js afterInteractive): начинаем качать popup-form.js ещё при разборе
+        HTML, так что к моменту вставки <script> в useEffect он уже в кэше и форма
+        прогревается раньше. Без crossOrigin — чтобы preload совпал с обычным
+        <script src> и браузер не качал файл дважды.
+      */}
+      <link
+        rel='preload'
+        as='script'
+        href='https://events.nethouse.ru/assets/js/popup-form.js'
+      />
       {children}
     </div>
   );
