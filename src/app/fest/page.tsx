@@ -3,6 +3,7 @@ import { preventOrphans } from "@/lib/typography";
 import { TicketButton } from "@/components/fest/TicketButton";
 import { FestJsonLd } from "@/components/fest/FestJsonLd";
 import { FestHero } from "@/components/fest/FestHero";
+import { ConnectionHint } from "@/components/fest/ConnectionHint";
 
 /** Фирменная «точка» над заголовком секции. 12px на мобилке, 20px на десктопе. */
 function Dot({ className }: { className?: string }) {
@@ -19,6 +20,8 @@ export default function FestPage() {
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#100030] text-[#F7FAFF] tracking-[-0.03em]">
       {/* Schema.org MusicEvent (JSON-LD) — карточка события в поисковой выдаче. */}
       <FestJsonLd />
+      {/* Мягкая подсказка про VPN, если связь с РФ-сервисами (Nethouse) тормозит. */}
+      <ConnectionHint />
       {/*
         Верх страницы. На мобилке визуально переворачиваем порядок
         (flex-col-reverse): сначала логотип «АМО», под ним — кнопка билетов, как
