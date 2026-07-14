@@ -2,6 +2,7 @@ import { fest } from "@/content/fest";
 import { preventOrphans } from "@/lib/typography";
 import { TicketButton } from "@/components/fest/TicketButton";
 import { FestJsonLd } from "@/components/fest/FestJsonLd";
+import { FestHero } from "@/components/fest/FestHero";
 
 /** Фирменная «точка» над заголовком секции. 6px на мобилке, 20px на десктопе. */
 function Dot({ className }: { className?: string }) {
@@ -48,22 +49,16 @@ export default function FestPage() {
           </a>
         </header>
 
-        {/* Герой. Логотип «АМО» — главный заголовок страницы (h1). Контейнер
-            (тёмный фон + рамка + леттеринг) — единый svg, тянется на всю ширину. */}
+        {/* Герой. Логотип «АМО» — главный заголовок страницы (h1). Вместо
+            статичного svg — зациклённое видео с расцветающим леттерингом
+            (см. FestHero), тянется на всю ширину. */}
         <section className="w-full min-w-0">
           <h1>
             {/* Текстовый заголовок для поисковиков и скринридеров. Визуально
-                скрыт (sr-only) — на экране его роль играет лого-картинка ниже,
-                поэтому у неё alt="" (декоративная, текст не дублируем). */}
+                скрыт (sr-only) — на экране его роль играет видео ниже, поэтому
+                оно декоративное (aria-hidden, текст не дублируем). */}
             <span className="sr-only">{fest.seo.h1}</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/fest/amo.svg"
-              alt=""
-              className="block w-full"
-              width={1200}
-              height={675}
-            />
+            <FestHero />
           </h1>
         </section>
       </div>
