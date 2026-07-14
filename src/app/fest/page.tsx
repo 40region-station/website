@@ -4,12 +4,12 @@ import { TicketButton } from "@/components/fest/TicketButton";
 import { FestJsonLd } from "@/components/fest/FestJsonLd";
 import { FestHero } from "@/components/fest/FestHero";
 
-/** Фирменная «точка» над заголовком секции. 6px на мобилке, 20px на десктопе. */
+/** Фирменная «точка» над заголовком секции. 12px на мобилке, 20px на десктопе. */
 function Dot({ className }: { className?: string }) {
   return (
     <span
       aria-hidden
-      className={`block h-1.5 w-1.5 rounded-full sm:h-5 sm:w-5 ${className ?? ""}`}
+      className={`block h-3 w-3 rounded-full sm:h-5 sm:w-5 ${className ?? ""}`}
     />
   );
 }
@@ -31,14 +31,14 @@ export default function FestPage() {
       */}
       <div className="flex flex-col-reverse gap-10 px-2 pt-2 sm:flex-col sm:gap-20 sm:px-10 sm:pt-10">
         {/* Навбар. На мобилке боковые ссылки скрыты — как в макете, по центру только билеты. */}
-        <header className="flex w-full items-center justify-center gap-4 text-[16px] leading-[0.98] sm:justify-between sm:text-[34px]">
+        <header className="flex w-full items-center justify-center gap-4 text-[32px] leading-[0.98] sm:justify-between sm:text-[34px]">
           <a
             href={fest.nav[0].href}
             className="hidden shrink-0 transition-opacity hover:opacity-70 sm:block"
           >
             {fest.nav[0].label}
           </a>
-          <TicketButton className="shrink-0 bg-[#FF6CF0] px-4 py-2 text-[#100030] transition-transform hover:scale-105">
+          <TicketButton className="shrink-0 bg-[#FF6CF0] px-6 py-3 text-[#100030] transition-transform hover:scale-105 sm:px-4 sm:py-2">
             {fest.nav[1].label}
           </TicketButton>
           <a
@@ -71,12 +71,12 @@ export default function FestPage() {
         <div className="flex flex-col items-center gap-4 sm:gap-20">
           <div className="flex flex-col items-center gap-2 sm:gap-3">
             <Dot className="bg-[#FF6CF0]" />
-            <h2 className="text-[16px] leading-[0.98] text-[#FF6CF0] sm:text-[50px]">
+            <h2 className="text-[30px] leading-[0.98] text-[#FF6CF0] sm:text-[50px]">
               {preventOrphans(fest.about.heading)}
             </h2>
           </div>
           {/* Название «AM-0» в начале описания — белым, как весь текст (было розовым) */}
-          <p className="text-[12px] leading-[1.1] sm:text-[40px]">
+          <p className="text-[24px] leading-[1.1] sm:text-[40px]">
             {preventOrphans(fest.about.text)}
           </p>
         </div>
@@ -90,12 +90,12 @@ export default function FestPage() {
         <div className="mx-auto flex max-w-[900px] flex-col items-center gap-4 text-center sm:gap-20">
           <div className="flex flex-col items-center gap-2 sm:gap-3">
             <Dot className="bg-[#100030]" />
-            <h2 className="text-[16px] leading-[0.98] sm:text-[50px]">
+            <h2 className="text-[30px] leading-[0.98] sm:text-[50px]">
               {fest.lineup.heading}
             </h2>
           </div>
 
-          <ul className="text-[12px] leading-[1.1] text-[#F7FAFF] sm:text-[40px]">
+          <ul className="text-[24px] leading-[1.1] text-[#F7FAFF] sm:text-[40px]">
             {fest.lineup.acts.map((act) => (
               <li key={act}>{act}</li>
             ))}
@@ -114,7 +114,7 @@ export default function FestPage() {
           <div className="flex flex-col items-center gap-4 sm:gap-10">
             <div className="flex flex-col items-center gap-2 sm:gap-3">
               <Dot className="bg-[#FF6CF0]" />
-              <h2 className="text-[16px] leading-[0.98] text-[#FF6CF0] sm:text-[50px]">
+              <h2 className="text-[30px] leading-[0.98] text-[#FF6CF0] sm:text-[50px]">
                 {preventOrphans(fest.follow.heading)}
               </h2>
             </div>
@@ -125,7 +125,7 @@ export default function FestPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Telegram"
-                className="flex-1 bg-[#FF6CF0] py-2.5 text-[16px] leading-[0.98] text-[#100030] transition-transform hover:scale-105 sm:py-5 sm:text-[50px]"
+                className="flex-1 bg-[#FF6CF0] py-4 text-[36px] leading-[0.98] text-[#100030] transition-transform hover:scale-105 sm:py-5 sm:text-[50px]"
               >
                 tG
               </a>
@@ -134,7 +134,7 @@ export default function FestPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex-1 bg-[#FF6CF0] py-2.5 text-[16px] leading-[0.98] text-[#100030] transition-transform hover:scale-105 sm:py-5 sm:text-[50px]"
+                className="flex-1 bg-[#FF6CF0] py-4 text-[36px] leading-[0.98] text-[#100030] transition-transform hover:scale-105 sm:py-5 sm:text-[50px]"
               >
                 iNsT*
               </a>
@@ -142,7 +142,7 @@ export default function FestPage() {
           </div>
 
           {/* Сноска про Meta — мелкая, приглушённо-розовая (rgba(255,152,245,0.3)). */}
-          <p className="text-[6px] leading-[0.98] text-[#FF98F5]/30 sm:text-[18px]">
+          <p className="text-[11px] leading-[0.98] text-[#FF98F5]/30 sm:text-[18px]">
             {preventOrphans(fest.follow.metaNote)}
           </p>
         </div>
