@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.10](https://github.com/obninskstation/website/compare/v0.1.9...v0.1.10) (2026-07-14)
+
+
+### ✨ Features
+
+* **fest:** крупнее мобильная типографика и кнопки ([4d8c491](https://github.com/obninskstation/website/commit/4d8c4910b3236773f7451f41b35cbce9bb1af911))
+
 ## [0.1.9](https://github.com/obninskstation/website/compare/v0.1.8...v0.1.9) (2026-07-14)
 
 
