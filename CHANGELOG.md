@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.9](https://github.com/obninskstation/website/compare/v0.1.8...v0.1.9) (2026-07-14)
+
+
+### ✨ Features
+
+* **fest:** видео-hero вместо статичного логотипа ([3162092](https://github.com/obninskstation/website/commit/3162092de85ac80d4688792e0e79b513b82aa605))
+
 ## [0.1.8](https://github.com/obninskstation/website/compare/v0.1.7...v0.1.8) (2026-07-13)
 
 
