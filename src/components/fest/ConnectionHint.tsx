@@ -74,7 +74,7 @@ export function ConnectionHint() {
   return (
     <div
       role="status"
-      className={`fixed inset-x-2 bottom-2 z-50 mx-auto flex max-w-[540px] items-start gap-3 border border-[#FF6CF0] bg-[#100030] px-4 py-3 text-[13px] leading-[1.3] text-[#F7FAFF] shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 sm:bottom-4 sm:px-5 sm:py-4 sm:text-[15px] ${
+      className={`fixed inset-x-2 bottom-2 z-50 mx-auto flex max-w-[540px] items-start gap-3 border border-[#FF6CF0] bg-[#100030] px-5 py-4 text-[16px] leading-[1.35] text-[#F7FAFF] shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-300 sm:bottom-4 sm:px-6 sm:py-5 sm:text-[17px] ${
         visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
       }`}
     >
@@ -87,7 +87,7 @@ export function ConnectionHint() {
         type="button"
         onClick={() => setShow(false)}
         aria-label="Закрыть"
-        className="shrink-0 text-[18px] leading-none text-[#FF6CF0] transition-opacity hover:opacity-70 sm:text-[20px]"
+        className="shrink-0 text-[22px] leading-none text-[#FF6CF0] transition-opacity hover:opacity-70"
       >
         ✕
       </button>
