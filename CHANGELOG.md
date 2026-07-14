@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.12](https://github.com/obninskstation/website/compare/v0.1.11...v0.1.12) (2026-07-14)
+
+
+### 🐛 Bug Fixes
+
+* **fest:** надёжнее автоплей hero-видео на iOS/WebKit ([d5cc2eb](https://github.com/obninskstation/website/commit/d5cc2eb635f0503c2f8012af7c5849af722473a1)), closes [facebook/react#10389](https://github.com/facebook/react/issues/10389)
+
 ## [0.1.11](https://github.com/obninskstation/website/compare/v0.1.10...v0.1.11) (2026-07-14)
 
 
