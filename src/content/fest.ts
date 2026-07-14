@@ -8,7 +8,7 @@ export const fest = {
   /** Билеты Nethouse: попап-форма (основной путь) + прямая ссылка на форму (фолбэк без JS) */
   ticketPopupUrl: "https://events.nethouse.ru/buy_tickets/166721",
   ticketUrl: "https://events.nethouse.ru/form/166721/",
-  telegramUrl: "https://t.me/obninsk_station",
+  telegramUrl: "https://telegram.me/obninsk_station",
   instagramUrl: "https://www.instagram.com/obninsk_station/",
 
   /** Навигация. Крайние пункты — якоря по секциям; центральный — кнопка-попап без якоря. */
