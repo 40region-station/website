@@ -3,6 +3,13 @@
 Все значимые изменения проекта документируются в этом файле.
 Формат основан на [Conventional Commits](https://www.conventionalcommits.org/).
 
+## [0.1.11](https://github.com/obninskstation/website/compare/v0.1.10...v0.1.11) (2026-07-14)
+
+
+### ✨ Features
+
+* **fest:** мягкая подсказка про VPN при медленной связи ([44c78c0](https://github.com/obninskstation/website/commit/44c78c0942ef158937b2dbc69e8abe3cfe7f70ba))
+
 ## [0.1.10](https://github.com/obninskstation/website/compare/v0.1.9...v0.1.10) (2026-07-14)
 
 
